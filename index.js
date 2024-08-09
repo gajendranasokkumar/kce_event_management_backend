@@ -23,6 +23,10 @@ mongoose.connect("mongodb+srv://gajendran:Gajendran_04@cluster0.lo3mjnl.mongodb.
 })
 
 
+app.get('/',(req, res)=>{
+    res.send("Hello there !!");
+})
+
 app.post('/login',(req,res) => {
     const {name,password} = req.body;
     ProposalModel.findOne({name: name})
