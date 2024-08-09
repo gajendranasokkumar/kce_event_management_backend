@@ -13,7 +13,15 @@ app.use(express.json());
 app.use(cors())
 
 
-mongoose.connect("mongodb://127.0.0.1:27017/proposals");
+// mongoose.connect("mongodb://127.0.0.1:27017/proposals");
+mongoose.connect("mongodb+srv://gajendran:Gajendran_04@cluster0.lo3mjnl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+.then(()=>{
+    console.log("Connected to the DB");
+})
+.catch((err)=>{
+    console.log(err);
+})
+
 
 app.post('/login',(req,res) => {
     const {name,password} = req.body;
