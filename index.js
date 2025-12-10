@@ -14,7 +14,7 @@ app.use(cors())
 
 
 // mongoose.connect("mongodb://127.0.0.1:27017/proposals");
-mongoose.connect("mongodb+srv://gajendran:Gajendran_04@cluster0.lo3mjnl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect("mongodb+srv://gajendran:Gajendran_29@cluster0.lo3mjnl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 .then(()=>{
     console.log("Connected to the DB");
 })
@@ -50,6 +50,7 @@ app.post('/login',(req,res) => {
 })
 
 app.post('/users', (request, response)=>{
+    console.log(request.body)
     ProposalModel.create(request.body)
     .then(proposal => {response.json(proposal);})
     .catch(err => response.json(err))
